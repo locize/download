@@ -1,0 +1,73 @@
+name: 'locize download'
+description: 'Download translation files from locize.'
+author: 'locize'
+branding:
+  icon: 'download-cloud'
+  color: 'blue'
+
+inputs:
+  project-id:
+    description: 'The project-id that should be used'
+    required: true
+  path:
+    description: 'Specify the path that should be used (default: locales)'
+    required: false
+    default: 'locales'
+  version:
+    description: 'The version that should be targeted (default: latest)'
+    required: false
+    default: 'latest'
+  format:
+    description: 'File format of namespaces (default: json; [flat, xliff2, xliff12, xlf2, xlf12, android, yaml, yaml-rails, yaml-nested, csv, xlsx, po, strings, resx, fluent, tmx, laravel, properties])'
+    required: false
+    default: 'json'
+  language:
+    description: 'The language that should be targeted'
+    required: false
+  namespace:
+    description: 'The namespace that should be targeted'
+    required: false
+  skip-empty:
+    description: 'Skips to download empty files (default: true)'
+    required: false
+  language-folder-prefix:
+    description: 'This will be added as a local folder name prefix in front of the language.'
+    required: false
+  path-mask:
+    description: 'This will define the folder and file structure; do not add a file extension (default: {{language}}/{{namespace}})'
+    required: false
+  clean:
+    description: 'Removes all local files by removing the whole folder (default: false)'
+    required: false
+  unpublished:
+    description: 'Downloads the current (unpublished) translations. This will generate private download costs and also needs the api-key to be passed (default: false)'
+    required: false
+  api-key:
+    description: 'The api-key that should be used'
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - run: npm i -g locize-cli@7
+      shell: bash
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+    - run: download.sh
+      shell: bash
+      env:
+        INPUT_PROJECT_ID: ${{ inputs.project-id }}
+        INPUT_PATH: ${{ inputs.path }}
+        INPUT_VERSION: ${{ inputs.version }}
+        INPUT_FORMAT: ${{ inputs.format }}
+        INPUT_LANGUAGE: ${{ inputs.language }}
+        INPUT_NAMESPACE: ${{ inputs.namespace }}
+        INPUT_SKIP_EMPTY: ${{ inputs.skip-empty }}
+        INPUT_LANGUAGE_FOLDER_PREFIX: ${{ inputs.language-folder-prefix }}
+        INPUT_PATH_MASK: ${{ inputs.path-mask }}
+        INPUT_CLEAN: ${{ inputs.clean }}
+        INPUT_UNPUBLISHED: ${{ inputs.unpublished }}
+        INPUT_API_KEY: ${{ inputs.api-key }}
