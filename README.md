@@ -57,7 +57,7 @@ The project-id that should be used.
 ## Example usage
 
 ```yaml
-uses: locize/download@v1
+uses: locize/download@v2
 with:
   project-id: ${{ secrets.LOCIZE_PROJECT_ID }}
 ```
