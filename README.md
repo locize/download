@@ -29,6 +29,10 @@ The project-id that should be used.
 
 **Optional** The namespace that should be targeted.
 
+### `cdn-type`
+
+**Optional** Specify the cdn endpoint that should be used (`standard` or `pro`, default: `standard`).
+
 ### `skip-empty`
 
 **Optional** Skips to download empty files (default: true).
@@ -60,4 +64,5 @@ The project-id that should be used.
 uses: locize/download@v2
 with:
   project-id: ${{ secrets.LOCIZE_PROJECT_ID }}
+  cdn-type: standard # optional, default is 'standard'
 ```

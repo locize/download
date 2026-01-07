@@ -1,5 +1,9 @@
 COMMAND="locize download --project-id $INPUT_PROJECT_ID --path $INPUT_PATH --ver $INPUT_VERSION --format $INPUT_FORMAT"
 
+if [ ! -z "$INPUT_CDN_TYPE" ]; then
+  COMMAND="$COMMAND --cdn-type $INPUT_CDN_TYPE"
+fi
+
 if [ ! -z "$INPUT_LANGUAGE" ]; then
   COMMAND="$COMMAND --language $INPUT_LANGUAGE"
 fi

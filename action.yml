@@ -27,6 +27,10 @@ inputs:
   namespace:
     description: 'The namespace that should be targeted'
     required: false
+  cdn-type:
+    description: 'Specify the cdn endpoint that should be used (standard or pro, default: standard)'
+    required: false
+    default: 'standard'
   skip-empty:
     description: 'Skips to download empty files (default: true)'
     required: false
@@ -49,10 +53,10 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/setup-node@v4
+    - uses: actions/setup-node@v6
       with:
-        node-version: 22
-    - run: npm i -g locize-cli@10
+        node-version: 24
+    - run: npm i -g locize-cli@12
       shell: bash
     - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
       shell: bash
@@ -71,3 +75,4 @@ runs:
         INPUT_CLEAN: ${{ inputs.clean }}
         INPUT_UNPUBLISHED: ${{ inputs.unpublished }}
         INPUT_API_KEY: ${{ inputs.api-key }}
+        INPUT_CDN_TYPE: ${{ inputs.cdn-type }}
