@@ -1,7 +1,7 @@
-# locize download action
+# Locize download action
 
-Download translation files from [locize](https://locize.com).
-It uses the locize CLI behind the scene. For detailed documentation of the locize CLI, please [visit the documentation](https://github.com/locize/locize-cli#download-current-published-files).
+Download translation files from [Locize](https://locize.com).
+It uses the Locize CLI behind the scene. For detailed documentation of the Locize CLI, please [visit the documentation](https://github.com/locize/locize-cli#download-current-published-files).
 
 ## Inputs
 
