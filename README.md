@@ -61,7 +61,7 @@ The project-id that should be used. **Required** unless `LOCIZE_PROJECTID` (or `
 ## Example usage
 
 ```yaml
-uses: locize/download@v2
+uses: locize/download@v4
 with:
   project-id: ${{ secrets.LOCIZE_PROJECT_ID }}
   cdn-type: standard # optional, default is 'standard'
