@@ -7,8 +7,8 @@ branding:
 
 inputs:
   project-id:
-    description: 'The project-id that should be used'
-    required: true
+    description: 'The project-id that should be used. Optional if LOCIZE_PROJECTID (or LOCIZE_PROJECT_ID) is set in the environment.'
+    required: false
   path:
     description: 'Specify the path that should be used (default: locales)'
     required: false
@@ -47,7 +47,7 @@ inputs:
     description: 'Downloads the current (unpublished) translations. This will generate private download costs and also needs the api-key to be passed (default: false)'
     required: false
   api-key:
-    description: 'The api-key that should be used'
+    description: 'The api-key that should be used (only needed for unpublished downloads). Falls back to LOCIZE_API_KEY (or LOCIZE_APIKEY) in the environment.'
     required: false
 
 runs:

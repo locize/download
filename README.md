@@ -7,7 +7,7 @@ It uses the Locize CLI behind the scene. For detailed documentation of the Lociz
 
 ### `project-id`
 
-The project-id that should be used.
+The project-id that should be used. **Required** unless `LOCIZE_PROJECTID` (or `LOCIZE_PROJECT_ID`) is set in the environment.
 
 ### `path`
 
