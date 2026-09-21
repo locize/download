@@ -51,7 +51,7 @@ The project-id that should be used. **Required** unless `LOCIZE_PROJECTID` (or `
 
 ### `unpublished`
 
-**Optional** Downloads the current (unpublished) translations. This will generate private download costs and also needs the api-key to be passed (default: false).
+**Optional** Downloads the current (unpublished) translations. Counts as private downloads: included from the Growth plan on, refused (403) on Free, Starter and Starter-Plus. Needs the api-key to be passed (default: false).
 
 ### `api-key`
 
